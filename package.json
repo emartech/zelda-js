@@ -3,7 +3,7 @@
   "description": "Link collector and decorator for text content",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --harmony $(find . -name \"*.spec.js\" -not -path \"./node_modules/*\")",
+    "test": "NODE_ENV=test mocha $(find . -name \"*.spec.js\" -not -path \"./node_modules/*\")",
     "code-style": "eslint $(find . -name \"*.js\" -not -path \"./node_modules/*\")",
     "validate-commit-msg": "validate-commit-msg",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
@@ -27,12 +27,12 @@
     "validate-commit-msg"
   ],
   "homepage": "https://github.com/emartech/zelda-js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "3.4.1",
     "eslint": "1.10.3",
     "eslint-config-emarsys": "2.0.0",
+    "expect.js": "^0.3.1",
     "mocha": "2.3.4",
     "pre-commit": "1.1.2",
     "semantic-release": "4.3.5",
