@@ -10,6 +10,7 @@ class TokenPlaceholder {
 
     this._token = token;
     this._id = id;
+    this._tokenRegExp = generateTokenRegExp(this._token);
   }
 
   get token() {
@@ -17,7 +18,7 @@ class TokenPlaceholder {
   }
 
   get tokenRegExp() {
-    return generateTokenRegExp(this._token);
+    return this._tokenRegExp;
   }
 
   get placeholder() {

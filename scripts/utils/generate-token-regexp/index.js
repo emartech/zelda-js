@@ -36,8 +36,8 @@ const eliminateSpecialCharacters = function(token) {
 };
 
 const generateTokenRegExp = function(token) {
-  const regexpCompatibleToken = eliminateSpecialCharacters(token);
-  return createRegExp(regexpCompatibleToken);
+  const regExpCompatibleToken = eliminateSpecialCharacters(token);
+  return createRegExp(regExpCompatibleToken);
 };
 
 module.exports = generateTokenRegExp;
