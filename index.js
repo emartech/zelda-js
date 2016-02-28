@@ -1,15 +1,9 @@
 'use strict';
 
-const _pattern = /([^">;]|^)\b((?:https?|ftp):\/\/[A-Za-z0-9][-A-Za-z0-9+&@#\/%?=~_|\[\]\(\)!:,.;$]*[-A-Za-z0-9+&@#\/%=~_|\[\]$])/gi; // eslint-disable-line max-len
-
-class ZeldaJs {
-
-  static transform(text = '', target = '') {
-    return text.replace(_pattern, match => ` <a href="${match.trim()}" target="${target}">${match.trim()}</a>`);
-  }
-
-}
+const targets = require('./scripts/targets');
+const Zelda = require('./scripts/zelda');
 
 module.exports = {
-  transform: ZeldaJs.transform
+  targets: targets,
+  Zelda: Zelda
 };

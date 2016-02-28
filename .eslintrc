@@ -1,13 +1,14 @@
 {
+  "root": true,
   "extends": [
     "emarsys"
   ],
-  "rules": {
-    "max-len": [2, 200, 2]
-  },
   "env": {
     "es6": true,
     "node": true,
     "mocha": true
+  },
+  "rules": {
+    "no-unused-expressions": 0
   }
 }
