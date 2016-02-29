@@ -1,5 +1,6 @@
 'use strict';
 
+const targets = require('../targets');
 const Zelda = require('./');
 
 describe('Zelda', function() {
@@ -59,6 +60,12 @@ describe('Zelda', function() {
 
     describe('with target option', function() {
 
+      it('should not add target to links when target is a not valid target attribute value', function() {
+        const zelda = new Zelda();
+        const linkifiedText = zelda.linkify('http://www.google.com', '_not_valid_target');
+        this.expect(linkifiedText).to.eql('<a href="http://www.google.com">http://www.google.com</a>');
+      });
+
       [{
         name: 'should linkify text with valid target attribute if it contains url',
         text: 'http://www.google.com',
@@ -73,8 +80,8 @@ describe('Zelda', function() {
       }]
       .forEach(testCase => {
         it(testCase.name, function() {
-          const zelda = new Zelda({ target: '_self' });
-          const linkifiedText = zelda.linkify(testCase.text);
+          const zelda = new Zelda();
+          const linkifiedText = zelda.linkify(testCase.text, targets.SELF);
           this.expect(linkifiedText).to.eql(testCase.expected);
         });
       });
@@ -124,12 +131,8 @@ describe('Zelda', function() {
       }]
       .forEach(testCase => {
         it(testCase.name, function() {
-          const zelda = new Zelda({
-            target: '_blank',
-            tokens: ['$token #1$', '$token #2$']
-          });
-
-          const linkifiedText = zelda.linkify(testCase.text);
+          const zelda = new Zelda({ tokens: ['$token #1$', '$token #2$'] });
+          const linkifiedText = zelda.linkify(testCase.text, targets.BLANK);
           this.expect(linkifiedText).to.eql(testCase.expected);
         });
       });

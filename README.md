@@ -10,16 +10,14 @@ const targets = require('zelda-js').targets;
 const Zelda = require('zelda-js').Zelda;
 
 const zelda = new Zelda({
-  target: targets.BLANK,
   tokens: ['$token 1$', '$token 2$']
 });
 
-let linkifiedText = zelda.linkify('... text source ...');
+let linkifiedText = zelda.linkify('... text source ...', targets.BLANK);
 let urls = zelda.collectLinks('... text source ...');
 ```
 
 #### Options
-- target : String - HTML target attribute value
 - tokens : Array - list of tokens which urls contain
 
 #### linkify(text: String)

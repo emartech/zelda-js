@@ -31,6 +31,16 @@ describe('Utilities', function() {
       this.expect(output).to.eql('<a href="url">url</a>');
     });
 
+    it('should not add target attribute if null target given', function() {
+      const output = linkify('url', null);
+      this.expect(output).to.eql('<a href="url">url</a>');
+    });
+
+    it('should not add target attribute if empty string target given', function() {
+      const output = linkify('url', '');
+      this.expect(output).to.eql('<a href="url">url</a>');
+    });
+
     it('should add target attribute if target given', function() {
       const output = linkify('url', 'target');
       this.expect(output).to.eql('<a href="url" target="target">url</a>');

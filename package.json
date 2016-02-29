@@ -1,6 +1,5 @@
 {
   "name": "zelda-js",
-  "version": "0.0.1",
   "description": "Link collector and decorator for text content",
   "main": "index.js",
   "scripts": {
