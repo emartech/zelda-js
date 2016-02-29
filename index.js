@@ -1,7 +1,7 @@
 'use strict';
 
-const targets = require('./scripts/targets');
-const Zelda = require('./scripts/zelda');
+const targets = require('./lib/targets');
+const Zelda = require('./lib/zelda');
 
 module.exports = {
   targets: targets,
