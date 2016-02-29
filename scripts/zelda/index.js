@@ -24,6 +24,13 @@ class Zelda {
     return transformedText;
   }
 
+  collectUrls(text) {
+    if (!text) { return []; }
+    let transformedText = this._replaceTokens(text);
+    let urls = transformedText.match(URL_PATTERN);
+    return urls.map(url => this._revertTokens(url));
+  }
+
   _linkifyUrls(text) {
     if (this._options.hasTarget()) {
       return text.replace(URL_PATTERN, url => linkify(url, this._options.target));

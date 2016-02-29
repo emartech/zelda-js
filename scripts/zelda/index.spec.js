@@ -138,4 +138,44 @@ describe('Zelda', function() {
 
   });
 
+  describe('#collectUrls', function() {
+
+    it('should return with empty array when text is undefined', function() {
+      const zelda = new Zelda();
+      const links = zelda.collectUrls();
+      this.expect(links).to.eql([]);
+    });
+
+    it('should return with empty array when text is null', function() {
+      const zelda = new Zelda(null);
+      const links = zelda.collectUrls();
+      this.expect(links).to.eql([]);
+    });
+
+    it('should return with empty array when text is empty string', function() {
+      const zelda = new Zelda('');
+      const links = zelda.collectUrls();
+      this.expect(links).to.eql([]);
+    });
+
+    it('should collect urls from text', function() {
+      const zelda = new Zelda();
+      const links = zelda.collectUrls('http://google.com, https://www.google.com');
+      this.expect(links).to.eql(['http://google.com', 'https://www.google.com']);
+    });
+
+    it('should collect urls with tokens from text', function() {
+      const zelda = new Zelda({ tokens: ['$token #1$'] });
+      const links = zelda.collectUrls('http://google.com?$token #1$');
+      this.expect(links).to.eql(['http://google.com?$token #1$']);
+    });
+
+    it('should collect urls without tokens from text when tokens not defined', function() {
+      const zelda = new Zelda();
+      const links = zelda.collectUrls('http://google.com?$token #1$');
+      this.expect(links).to.eql(['http://google.com?$token']);
+    });
+
+  });
+
 });
