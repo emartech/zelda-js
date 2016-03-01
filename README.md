@@ -19,6 +19,7 @@ let urls = zelda.collectLinks('... text source ...');
 ```
 ### Options
 - tokens : Array - list of tokens which urls contain
+
 ### Methods
 #### linkify(text: String, target: String)
 - Convert urls in plain text to HTML ```<a>``` tags
