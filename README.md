@@ -16,6 +16,8 @@ const zelda = new Zelda({
 
 let linkifiedText = zelda.linkify('... text source ...', targets.BLANK);
 let urls = zelda.collectLinks('... text source ...');
+
+zelda.setTokens(['$token 2$']);
 ```
 ### Options
 - tokens : Array - list of tokens which urls contain
