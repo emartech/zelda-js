@@ -30,3 +30,4 @@ zelda.setTokens(['$token 2$']);
 #### collectLinks(text: String)
 - Collect urls and their offsets from plain text
 - Handle non-standard urls (with tokens)
+- Return with the numbers where url found (offsets)
