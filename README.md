@@ -27,6 +27,6 @@ zelda.setTokens(['$token 2$']);
 - Convert urls in plain text to HTML ```<a>``` tags
 - Handle non-standard urls (with tokens)
 
-#### collectUrls(text: String)
-- Collect urls from plain text
+#### collectLinks(text: String)
+- Collect urls and their offsets from plain text
 - Handle non-standard urls (with tokens)
